@@ -24,7 +24,7 @@ def helper_data(signal_we_want_to_analyze, nivel_wavelet):
     for index in range(0,len(coeffs)):
         coeff_to_odf = coeffs[index]
         sample_rate = 44100
-        frame_size = 2048
+        frame_size = 4096 #92.8ms
 
         if index == 0:
             samplerate_equivalente = sample_rate/2**(len(coeffs)-1)
@@ -33,7 +33,7 @@ def helper_data(signal_we_want_to_analyze, nivel_wavelet):
             samplerate_equivalente = sample_rate/2**(len(coeffs)-index)
             frame_size_equivalente = frame_size/2**(len(coeffs)-index)
 
-        ODF = ODF_SuperFlux(coeff_to_odf, sample_rate=samplerate_equivalente, frame_size=frame_size_equivalente, hop=frame_size_equivalente/2)
+        ODF = ODF_SuperFlux(coeff_to_odf, samplerate_equivalente, frame_size_equivalente, frame_size_equivalente/2)
         ODF_SET.append(ODF)
 
     # PeDF Generation 
