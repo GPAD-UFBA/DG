@@ -38,7 +38,7 @@ def music_loading(filename, sample_rate=44100):
     musica = np.array(sig)
     musica = musica/np.max(np.abs(musica))
     return musica
-    
+
 def ODF_SuperFlux(signal, sample_rate, frame_size, hop):
     """
     computes the Onset Detection Function of a signal
@@ -94,7 +94,7 @@ def PeDF(ODF, form):
         index = index[0][0]
         PeDF = corr[index:]
         return PeDF
-    
+
 def preprocess(signal_we_want_to_analyze, nivel_wavelet):
     """
     realizes the preprocessing of a signal to output its ODFs, PeDFs and wavelet coefficients
@@ -203,7 +203,7 @@ def plot_ODF(ODF, index=None, size=None):
                 plt.title('ODF - ' + name)
     else:
         plt.title('ODF')
-    
+
 def plot_PeDF(PeDF, form, index=None, size=None):
     
     """
@@ -250,4 +250,4 @@ def plot_PeDF(PeDF, form, index=None, size=None):
         else:
             plt.title('PeDF - Total')
         plt.xlabel('Lags')
-        
+
